@@ -71,6 +71,6 @@ app.get("/dark_theme.css", include_in_schema=False, name="dark_theme")(fsd.dark_
 
 # Credit
 
-Thanks go to @georgekhananaev and their repository
+Thanks go to [@georgekhananaev](https://github.com/georgekhananaev) and their repository
 [darktheme-auth-fastapi-server](https://github.com/georgekhananaev/darktheme-auth-fastapi-server)
 for the basis of the stylesheet used here.
