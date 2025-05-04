@@ -41,23 +41,29 @@ fsd.install(router, path="/docs")
 app.include_router(router)
 ```
 
-If you are customising the documenation endpoints, for example with authorization, you can replace fastapi's default get_swagger_ui_html with the custom one using the dark theme. Ensure the dark_theme route is also included.
+If you are customising the documenation endpoints, for example with
+authorization, you can replace fastapi's default get_swagger_ui_html with the
+custom one using the dark theme. Ensure the dark_theme route is also included.
 
 ```
+import typing
+
 import fastapi
 import fastapi_swagger_dark as fsd
 
 app = fastapi.FastAPI(docs_url=None)
+
 
 def auth_validation(...) -> None:
     ...
 
 
 async def swagger_ui_html(
-    request: Request,
-    _docs_auth: Annotated[None, Depends(get_docs_auth)],
+    request: fastapi.Request,
+    _docs_auth: typing.Annotated[None, fastapi.Depends(auth_validation)],
 ) -> fastapi.responses.HTMLResponse:
     return fsd.get_swagger_ui_html(request)
+
 
 app.get("/docs")(swwagger_ui_html)
 app.get("/dark_theme.css", include_in_schema=False, name="dark_theme")(fsd.dark_swagger_theme)
