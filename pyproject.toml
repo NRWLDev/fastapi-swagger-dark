@@ -1,0 +1,14 @@
+[project]
+name = "fastapi-swagger-dark"
+version = "0.0.0"
+description = "FastAPI plugin to add dark theme swagger docs."
+readme = "README.md"
+authors = [
+    { name = "Daniel Edgecombe", email = "edgy.edgemond@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
