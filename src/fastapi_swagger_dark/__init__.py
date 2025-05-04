@@ -3,11 +3,10 @@ from pathlib import Path
 import fastapi
 from fastapi.openapi import docs
 
-
 here = Path(__file__).parent
 
 
-def get_swagger_ui_html(request):
+def get_swagger_ui_html(request: fastapi.Request) -> fastapi.responses.HTMLResponse:
     return docs.get_swagger_ui_html(
         openapi_url=str(request.url_for("openapi")),
         title=request.app.title + " - Swagger UI",
@@ -19,7 +18,7 @@ async def swagger_ui_html(request: fastapi.Request) -> fastapi.responses.HTMLRes
     return get_swagger_ui_html(request)
 
 
-async def dark_swagger_theme(request: fastapi.Request) -> fastapi.responses.FileResponse:
+async def dark_swagger_theme() -> fastapi.responses.FileResponse:
     f = here / "swagger_ui_dark.min.css"
     return fastapi.responses.FileResponse(str(f))
 

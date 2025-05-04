@@ -3,11 +3,125 @@ name = "fastapi-swagger-dark"
 version = "0.0.0"
 description = "FastAPI plugin to add dark theme swagger docs."
 readme = "README.md"
+license = "Apache-2.0"
 authors = [
-    { name = "Daniel Edgecombe", email = "edgy.edgemond@gmail.com" }
+    { name = "Daniel Edgecombe", email = "daniel@nrwl.co" }
 ]
-requires-python = ">=3.12"
+repository="https://github.com/NRWLDev/fastapi-swagger-dark/"
+homepage="https://github.com/NRWLDev/fastapi-swagger-dark/"
+keywords = ["exception", "handler", "webdev", "starlette"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Internet",
+    "Topic :: Utilities",
+    "Framework :: FastAPI",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.9"
 dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "fastapi",
+
+    # test
+    "pytest >= 7.4.3",
+    "pytest-asyncio >= 0.21",
+    "pytest-cov >= 4.1.0",
+    "pytest-httpx >= 0.26.0",
+    "pytest-random-order >= 1.0",
+
+    # style
+    "ruff >= 0.6.4",
+    "pre-commit >= 3.7.1",
+
+    # release
+    "changelog-gen >= 0.12",
+]
+
+[tool.changelog_gen]
+current_version = "0.0.0"
+reject_empty = true
+statistics = true
+allowed_branches = [
+    "main",
+]
+date_format = "- %Y-%m-%d"
+
+[tool.changelog_gen.github]
+strip_pr_from_description = true
+extract_pr_from_description = true
+extract_common_footers = true
+
+[[tool.changelog_gen.extractors]]
+footer = ["closes", "fixes", "Refs"]
+pattern = '#(?P<issue_ref>\d+)'
+
+[[tool.changelog_gen.link_generators]]
+source = "issue_ref"
+link = "https://github.com/NRWLDev/fastapi-swagger-dark/issues/{0}"
+
+[[tool.changelog_gen.link_generators]]
+source = "__change__"
+text = "{0.short_hash}"
+link = "https://github.com/NRWLDev/fastapi-swagger-dark/commit/{0.commit_hash}"
+
+[[tool.changelog_gen.files]]
+filename = "pyproject.toml"
+pattern = 'version = "{version}"'
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--random-order"
+
+[tool.coverage.report]
+sort = "cover"
+fail_under = 95
+show_missing = true
+skip_covered = true
+
+[tool.coverage.run]
+branch = true
+source = ["src/fastapi_swagger_dark"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+output-format = "concise"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN002",  # ParamSpec not available in 3.9
+    "ANN003",  # ParamSpec not available in 3.9
+    "E501",    # Handled by ruff format
+    "FIX",  # allow TODO
+    "D",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tasks.py" = ["ANN", "E501", "INP001", "S"]
+"tests/*" = ["ANN", "D", "S101", "S105", "S106", "SLF001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["fastapi_swagger_dark"]
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [build-system]
 requires = ["hatchling"]
