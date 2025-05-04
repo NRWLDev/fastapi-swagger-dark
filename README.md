@@ -4,7 +4,7 @@ Simple plugin to support enabling a dark theme for swagger docs in a FastAPI app
 
 The simplest usage with default `/docs` endpoint can be achieved with something like:
 
-```
+```python
 import fastapi
 import fastapi_swagger_dark as fsd
 
@@ -17,7 +17,7 @@ app.include_router(router)
 
 To install using a custom path:
 
-```
+```python
 import fastapi
 import fastapi_swagger_dark as fsd
 
@@ -30,7 +30,7 @@ app.include_router(router)
 
 To install using a custom prefix:
 
-```
+```python
 import fastapi
 import fastapi_swagger_dark as fsd
 
@@ -45,7 +45,7 @@ If you are customising the documenation endpoints, for example with
 authorization, you can replace fastapi's default get_swagger_ui_html with the
 custom one using the dark theme. Ensure the dark_theme route is also included.
 
-```
+```python
 import typing
 
 import fastapi
