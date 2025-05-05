@@ -9,6 +9,8 @@
 
 Simple plugin to support enabling a dark theme for swagger docs in a FastAPI application.
 
+![screenshot](https://raw.githubusercontent.com/NRWLDev/fastapi-swagger-dark/main/screenshot.png)
+
 # Usage
 
 The simplest usage with default `/docs` endpoint can be achieved with something like:
@@ -77,8 +79,6 @@ async def swagger_ui_html(
 app.get("/docs")(swwagger_ui_html)
 app.get("/dark_theme.css", include_in_schema=False, name="dark_theme")(fsd.dark_swagger_theme)
 ```
-
-![screenshot](https://raw.githubusercontent.com/NRWLDev/fastapi-swagger-dark/main/screenshot.png)
 
 # Credit
 
