@@ -78,7 +78,7 @@ app.get("/docs")(swwagger_ui_html)
 app.get("/dark_theme.css", include_in_schema=False, name="dark_theme")(fsd.dark_swagger_theme)
 ```
 
-![screenshot](http://github.com/NRWLDev/fastapi-swagger-dark/screenshot.png)
+![screenshot](http://github.com/NRWLDev/fastapi-swagger-dark/blob/main/screenshot.png)
 
 # Credit
 
