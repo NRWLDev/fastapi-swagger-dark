@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.4 - 2025-05-05
+
+### Bug fixes
+
+- Ensure urls render in pypi. [[de5b80c](https://github.com/NRWLDev/fastapi-swagger-dark/commit/de5b80cfcd387b90f09ea27133d5b633eea1aece)]
+
 ## v0.0.3 - 2025-05-05
 
 ### Bug fixes
