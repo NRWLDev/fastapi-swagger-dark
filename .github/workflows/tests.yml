@@ -31,7 +31,7 @@ jobs:
 
     - name: Generate coverage report
       run: |
-        uv run pytest --cov=src/fastapi_problem --cov-report=xml
+        uv run pytest --cov=src/fastapi_swagger_dark --cov-report=xml
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
