@@ -186,7 +186,7 @@ body a:hover {
 }
 
 .swagger-ui textarea {
-    overflow: auto
+    overflow: auto;
 }
 
 .swagger-ui [type=checkbox], .swagger-ui [type=radio] {
@@ -10162,10 +10162,10 @@ body a:hover {
 }
 
 .swagger-ui textarea {
-    background: hsla(0, 0%, 100%, .8);
+    background: #41444e;
     border: none;
     border-radius: 4px;
-    color: var(--text-color);
+    color: #ddd;
     font-family: monospace;
     font-size: 12px;
     font-weight: 600;
