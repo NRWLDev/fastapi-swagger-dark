@@ -19,8 +19,7 @@ async def swagger_ui_html(request: fastapi.Request) -> fastapi.responses.HTMLRes
 
 
 async def dark_swagger_theme() -> fastapi.responses.FileResponse:
-    f = here / "swagger_ui_dark.min.css"
-    return fastapi.responses.FileResponse(str(f))
+    return fastapi.responses.FileResponse(here / "swagger_ui_dark.min.css")
 
 
 def install(router: fastapi.APIRouter, path: str = "/docs") -> None:
