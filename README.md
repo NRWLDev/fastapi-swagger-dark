@@ -78,6 +78,8 @@ app.get("/docs")(swwagger_ui_html)
 app.get("/dark_theme.css", include_in_schema=False, name="dark_theme")(fsd.dark_swagger_theme)
 ```
 
+![screenshot](http://github.com/NRWLDev/fastapi-swagger-dark/screenshot.png)
+
 # Credit
 
 Thanks go to [@georgekhananaev](https://github.com/georgekhananaev) and their repository
