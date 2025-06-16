@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.5 - 2025-06-16
+
+### Bug fixes
+
+- Use relative paths to avoid issues with protocol forwarding and https termination. [[6b7e213](https://github.com/NRWLDev/fastapi-swagger-dark/commit/6b7e2135b1f696e76eb12edd1ad502b78641adb1)]
+
 ## v0.0.4 - 2025-05-05
 
 ### Bug fixes
