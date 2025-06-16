@@ -8,9 +8,9 @@ here = Path(__file__).parent
 
 def get_swagger_ui_html(request: fastapi.Request) -> fastapi.responses.HTMLResponse:
     return docs.get_swagger_ui_html(
-        openapi_url=str(request.url_for("openapi")),
+        openapi_url=str(request.app.url_path_for("openapi")),
         title=request.app.title + " - Swagger UI",
-        swagger_css_url=request.url_for("dark_theme"),
+        swagger_css_url=request.app.url_path_for("dark_theme"),
     )
 
 

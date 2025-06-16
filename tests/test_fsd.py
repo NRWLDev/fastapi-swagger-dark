@@ -54,7 +54,7 @@ def test_generate_swagger_ui_html(app):
 
     response = fsd.get_swagger_ui_html(r)
 
-    assert b'<link type="text/css" rel="stylesheet" href="http://host/dark_theme.css">' in response.body
+    assert b'<link type="text/css" rel="stylesheet" href="/dark_theme.css">' in response.body
 
 
 async def test_swagger_ui_html(app):
@@ -62,7 +62,7 @@ async def test_swagger_ui_html(app):
 
     response = await fsd.swagger_ui_html(r)
 
-    assert b'<link type="text/css" rel="stylesheet" href="http://host/dark_theme.css">' in response.body
+    assert b'<link type="text/css" rel="stylesheet" href="/dark_theme.css">' in response.body
 
 
 async def test_dark_swagger_theme():
