@@ -143,7 +143,7 @@ body a:hover {
     font-family: sans-serif;
     font-size: 100%;
     line-height: 1.15;
-    margin: 0
+    margin: 0;
 }
 
 .swagger-ui button, .swagger-ui input {
@@ -10101,7 +10101,7 @@ body a:hover {
 }
 
 .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea {
-    background: #fff;
+    background: #151515;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     margin: 5px 0;
@@ -10117,7 +10117,7 @@ body a:hover {
 }
 
 .swagger-ui input[disabled], .swagger-ui select[disabled], .swagger-ui textarea[disabled] {
-    background-color: #fafafa;
+    background-color: #1f1f1f;
     color: #888;
     cursor: not-allowed
 }
