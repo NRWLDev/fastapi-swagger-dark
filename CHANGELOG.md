@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.6 - 2025-06-28
+
+### Bug fixes
+
+- Update background color of input fields to be dark. [[14e0213](https://github.com/NRWLDev/fastapi-swagger-dark/commit/14e021393d1192adfefdd431bc7d5c6c3889e2cc)]
+
 ## v0.0.5 - 2025-06-16
 
 ### Bug fixes
