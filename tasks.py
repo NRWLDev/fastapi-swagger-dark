@@ -37,3 +37,12 @@ def tests(context):
 def tests_coverage(context):
     """Run pytest unit tests with coverage."""
     context.run("pytest --cov -x --cov-report=xml")
+
+
+@invoke.task
+def minify(context):
+    """Minify swagger.css"""
+    context.run("rm src/fastapi_swagger_dark/swagger_ui_dark.min.css")
+    context.run(
+        "python -m rcssmin <src/fastapi_swagger_dark/swagger_ui_dark.css >src/fastapi_swagger_dark/swagger_ui_dark.min.css",
+    )
