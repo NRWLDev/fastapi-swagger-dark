@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.7 - 2025-07-09
+
+### Features and Improvements
+
+- Support minifying css for releases. [[0f88d69](https://github.com/NRWLDev/fastapi-swagger-dark/commit/0f88d69471a1cc24ac818728c1e45ca68161f0fa)]
+
 ## v0.0.6 - 2025-06-28
 
 ### Bug fixes

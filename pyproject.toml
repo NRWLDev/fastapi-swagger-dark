@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-swagger-dark"
-version = "0.0.6"
+version = "0.0.7"
 description = "FastAPI plugin to add dark theme swagger docs."
 readme = "README.md"
 license = "Apache-2.0"
@@ -52,7 +52,7 @@ dev = [
 ]
 
 [tool.changelog_gen]
-current_version = "0.0.6"
+current_version = "0.0.7"
 reject_empty = true
 statistics = true
 allowed_branches = [
