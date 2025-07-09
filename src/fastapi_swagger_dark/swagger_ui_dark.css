@@ -10102,6 +10102,7 @@ body a:hover {
 
 .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea {
     background: #151515;
+    color: #888;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     margin: 5px 0;
@@ -11374,6 +11375,10 @@ body a:hover {
 .swagger-ui .json-schema-2020-12:last-of-type{
     margin:0 20px
 }
+
+svg path {
+    fill: #888;
+}
 .swagger-ui .json-schema-2020-12--embedded{
     background-color:inherit;
     padding-bottom:0;
@@ -11400,7 +11405,7 @@ body a:hover {
     display:inline-block;
     height:18px;
     vertical-align:bottom;
-    width:18px
+    width:18px;
 }
 .swagger-ui .json-schema-2020-12-accordion__icon--expanded{
     background:rgba(0,0,0,.05);
