@@ -52,6 +52,19 @@ fsd.install(router, path="/docs")
 app.include_router(router)
 ```
 
+To install using custom swagger_ui_parameters:
+
+```python
+import fastapi
+import fastapi_swagger_dark as fsd
+
+app = fastapi.FastAPI(docs_url=None)
+router = fastapi.APIRouter()
+
+fsd.install(router, swagger_ui_parameters={...})
+app.include_router(router)
+```
+
 If you are customising the documentation endpoints, for example with
 authorization, you can replace fastapi's default get_swagger_ui_html with the
 custom one using the dark theme. Ensure the dark_theme route is also included.
