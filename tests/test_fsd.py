@@ -19,7 +19,8 @@ def app():
     return app_
 
 
-def test_install():
+def test_install(monkeypatch):
+    monkeypatch.setattr(fsd, "generate_swagger_ui_html", mock.Mock())
     router = mock.Mock()
 
     fsd.install(router)
@@ -29,12 +30,13 @@ def test_install():
         mock.call("/dark_theme.css", include_in_schema=False, name="dark_theme"),
     ]
     assert router.get.return_value.call_args_list == [
-        mock.call(fsd.swagger_ui_html),
+        mock.call(fsd.generate_swagger_ui_html.return_value),
         mock.call(fsd.dark_swagger_theme),
     ]
 
 
-def test_install_with_custom_path():
+def test_install_with_custom_path(monkeypatch):
+    monkeypatch.setattr(fsd, "generate_swagger_ui_html", mock.Mock())
     router = mock.Mock()
 
     fsd.install(router, "/path/to/docs")
@@ -44,9 +46,27 @@ def test_install_with_custom_path():
         mock.call("/dark_theme.css", include_in_schema=False, name="dark_theme"),
     ]
     assert router.get.return_value.call_args_list == [
-        mock.call(fsd.swagger_ui_html),
+        mock.call(fsd.generate_swagger_ui_html.return_value),
         mock.call(fsd.dark_swagger_theme),
     ]
+    assert fsd.generate_swagger_ui_html.call_args == mock.call(None)
+
+
+def test_install_with_custom_ui_parameters(monkeypatch):
+    monkeypatch.setattr(fsd, "generate_swagger_ui_html", mock.Mock())
+    router = mock.Mock()
+
+    fsd.install(router, swagger_ui_parameters={"custom": "params"})
+
+    assert router.get.call_args_list == [
+        mock.call("/docs", include_in_schema=False),
+        mock.call("/dark_theme.css", include_in_schema=False, name="dark_theme"),
+    ]
+    assert router.get.return_value.call_args_list == [
+        mock.call(fsd.generate_swagger_ui_html.return_value),
+        mock.call(fsd.dark_swagger_theme),
+    ]
+    assert fsd.generate_swagger_ui_html.call_args == mock.call({"custom": "params"})
 
 
 def test_generate_swagger_ui_html(app):
@@ -58,9 +78,10 @@ def test_generate_swagger_ui_html(app):
 
 
 async def test_swagger_ui_html(app):
+    swagger_ui_html = fsd.generate_swagger_ui_html(None)
     r = fastapi.Request({"type": "http", "app": app, "headers": {}, "root_path": "http://host"})
 
-    response = await fsd.swagger_ui_html(r)
+    response = await swagger_ui_html(r)
 
     assert b'<link type="text/css" rel="stylesheet" href="/dark_theme.css">' in response.body
 
