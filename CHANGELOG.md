@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.8 - 2025-11-10
+
+### Features and Improvements
+
+- Support passing swagger_ui_parameters on install. [[6](https://github.com/NRWLDev/fastapi-swagger-dark/issues/6)] [[f2ee450](https://github.com/NRWLDev/fastapi-swagger-dark/commit/f2ee450f2148ebaa3b4df029303b362f385f7d22)]
+
 ## v0.0.7 - 2025-07-09
 
 ### Features and Improvements
