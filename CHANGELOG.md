@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.9 - 2025-12-08
+
+### Bug fixes
+
+- Clean up contrast issues on auth errors [[8](https://github.com/NRWLDev/fastapi-swagger-dark/issues/8)] [[44b2064](https://github.com/NRWLDev/fastapi-swagger-dark/commit/44b2064acac9cdbe58fe9c1bf4876392c32fe39b)]
+
 ## v0.0.8 - 2025-11-10
 
 ### Features and Improvements
