@@ -27,7 +27,7 @@ def get_swagger_ui_html(
 
 def generate_swagger_ui_html(
     swagger_ui_parameters: dict[str, Any] | None,
-) -> Callable[[fastapi.request], Awaitable[fastapi.responses.HTMLResponse]]:
+) -> Callable[[fastapi.Request], Awaitable[fastapi.responses.HTMLResponse]]:
     async def swagger_ui_html(request: fastapi.Request) -> fastapi.responses.HTMLResponse:
         return get_swagger_ui_html(request, swagger_ui_parameters)
 
